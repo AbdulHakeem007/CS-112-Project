@@ -6,15 +6,14 @@ public:
 int usd;
 int pkr;
 int pound;
-Currency (int u , int p , int po){
+    Currency (int u , int p , int po){
     usd=u;
     pkr=p;
     pound=po;
-    cout<<"USD into PKR :"<<u;
 }
+Currency(){}
 };
+class USD {
+USD()
 
-int main(){
-    Currency C(280,34,56);
-
-}
+};
