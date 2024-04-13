@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Currency{
+public:
+int usd;
+int dinar;
+int pound;
+    Currency (int u , int d , int po){
+    usd=u;
+    dinar=d;
+    pound=po;
+    cout<<"1. USD into PKR :"<<usd<<endl;
+    cout<<"2. KWD into PKR :"<<d<<endl;
+    cout<<"3. GBP into PKR :"<<po<<endl;
+    };
+    void displayoption(int option , int amount){
+        switch (option){
+        case 1:
+        cout<<"The amount from USD into PKR is "<< amount * usd;
+        break;
+        case 2:
+        cout<<"The amount from KWD into PKR is "<< amount * dinar;
+        break;
+        case 3:
+        cout<<"The amount from GBP into PKR is "<< amount * pound;
+        break;
+    }
+};
+};
+int main(){
+   Currency C(277,900,346);
+   int option;
+   int amount;
+   cout<<"Enter the currency you want to convert in "<<endl;
+   cin>>option;
+   cout<<"Enter the amount in PKR you want to convert "<<endl;
+   cin>>amount;
+   C.displayoption(option,amount);
+
+}
