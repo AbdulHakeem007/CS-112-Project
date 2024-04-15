@@ -1,0 +1,84 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Currency{
+private:
+int usd;
+int dinar;
+int pound;
+int euro;
+float indianrs;
+int AustralianDollar;
+int CanadianDollar;
+int SingaporeDollar;
+int JapaneseYen;
+int BahrainiDinar;
+public:
+    Currency (int u , int d , int po, int e, float i , int a , int c , int s , int j, int b){
+    usd=u;
+    dinar=d;
+    pound=po;
+    euro=e;
+    indianrs=i;
+    AustralianDollar=a;
+    CanadianDollar=c;
+    SingaporeDollar=s;
+    JapaneseYen=j;
+    BahrainiDinar=b;
+    cout<<"1. USD into PKR :"<<usd<<endl;
+    cout<<"2. KWD into PKR :"<<d<<endl;
+    cout<<"3. GBP into PKR :"<<po<<endl;
+    cout<<"4. Euro into PKR :"<<e<<endl;
+    cout<<"5. INR into PKR : "<<i<<endl;
+    cout<<"6. AUD into PKR : "<<a<<endl;
+    cout<<"7. CAD into PKR : "<<c<<endl;
+    cout<<"8. SGD into PKR : "<<s<<endl;
+    cout<<"9. JPY into PKR : "<<j<<endl;
+    cout<<"10. BHD into PKR : "<<b<<endl;
+    };
+    void displayoption(int option , int amount){
+        switch (option){
+        case 1:
+        cout<<"The amount from USD into PKR is "<< amount * usd;
+        break;
+        case 2:
+        cout<<"The amount from KWD into PKR is "<< amount * dinar;
+        break;
+        case 3:
+        cout<<"The amount from GBP into PKR is "<< amount * pound;
+        break;
+        case 4:
+        cout<<"The amount from Euro into PKR is "<< amount * euro;
+        break;
+        case 5:
+        cout<<"The amount from INR into PKR is "<< amount * indianrs;
+        break;
+        case 6:
+        cout<<"The amount from AUD into PKR is "<< amount * AustralianDollar;
+        break;
+        case 7:
+        cout<<"The amount from CAD into PKR is "<< amount * CanadianDollar;
+        break;
+        case 8:
+        cout<<"The amount from SGD into PKR is "<< amount * SingaporeDollar;
+        break;
+        case 9:
+        cout<<"The amount from JPY into PKR is "<< amount * JapaneseYen;
+        break;
+        case 10:
+        cout<<"The amount from BHD into PKR is "<< amount * BahrainiDinar;
+        break;
+    }
+};
+};
+int main(){
+   Currency C(277,900,346,295,3.3,180,201,204,2,739);
+   int option;
+   int amount;
+   cout<<"Enter the currency you want to convert in "<<endl;
+   cin>>option;
+   cout<<"Enter the amount in PKR you want to convert "<<endl;
+   cin>>amount;
+   C.displayoption(option,amount);
+
+}
