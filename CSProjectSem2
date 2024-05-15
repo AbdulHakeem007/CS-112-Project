@@ -1,40 +1,239 @@
 #include<iostream>
 #include<string>
+#include <fstream>
 using namespace std;
-class Currency{
+ofstream SaveCurrency("currency.txt",ios::out);
+class display{
+    public:
+    virtual void displayoption(int,int)=0;
+};
+
+class Currency : public display{
 public:
-int usd;
-int dinar;
-int pound;
-    Currency (int u , int d , int po){
+Currency();
+double usd;
+double dinar;
+double pound;
+double euro;
+double indianrs;
+double AustralianDollar;
+double CanadianDollar;
+double SingaporeDollar;
+double JapaneseYen;
+double BahrainiDinar;
+double SouthKorean;
+public:
+    Currency (double u , double d , double po, double e, double i , double a , double c , double s , double j){
     usd=u;
     dinar=d;
     pound=po;
-    cout<<"1. USD into PKR :"<<usd;
-    cout<<"2. KWD into PKR :"<<d;
-    cout<<"3. GBP into PKR :"<<po;
+    euro=e;
+    indianrs=i;
+    AustralianDollar=a;
+    CanadianDollar=c;
+    SingaporeDollar=s;
+    JapaneseYen=j;
+    cout<<"1. USD into PKR :"<<usd<<endl;
+    cout<<"2. KWD into PKR :"<<d<<endl;
+    cout<<"3. GBP into PKR :"<<po<<endl;
+    cout<<"4. Euro into PKR :"<<e<<endl;
+    cout<<"5. INR into PKR : "<<i<<endl;
+    cout<<"6. AUD into PKR : "<<a<<endl;
+    cout<<"7. CAD into PKR : "<<c<<endl;
+    cout<<"8. SGD into PKR : "<<s<<endl;
+    cout<<"9. JPY into PKR : "<<j<<endl;
+    cout<<"-----------------------------"<<endl;
     };
-    void displayoption(int option , int amount){
+    void displayoption(int option , int amount) override {
         switch (option){
-            case 1:
-            cout<<"The amount from USD into PKR is "<< amount * 280;
-            break;
-            case 2:
-            cout<<"The amount from KWD into PKR is "<< amount * 900;
-            break;
-            case 3:
-            cout<<"The amount from GBP into PKR is "<< amount * 346;
-            break;
+        case 1:
+        cout<<"The amount from USD into PKR is "<< amount * usd;
+        SaveCurrency<<"The amount from USD into PKR is "<< amount * usd;
+        break;
+        case 2:
+        cout<<"The amount from KWD into PKR is "<< amount * dinar;
+        SaveCurrency<<"The amount from KWD into PKR is "<< amount * dinar;
+        break;
+        case 3:
+        cout<<"The amount from GBP into PKR is "<< amount * pound;
+        SaveCurrency<<"The amount from GBP into PKR is "<< amount * pound;
+        break;
+        case 4:
+        cout<<"The amount from Euro into PKR is "<< amount * euro;
+        SaveCurrency<<"The amount from Euro into PKR is "<< amount * euro;
+        break;
+        case 5:
+        cout<<"The amount from INR into PKR is "<< amount * indianrs;
+        SaveCurrency<<"The amount from INR into PKR is "<< amount * indianrs;
+        break;
+        case 6:
+        cout<<"The amount from AUD into PKR is "<< amount * AustralianDollar;
+        SaveCurrency<<"The amount from AUD into PKR is "<< amount * AustralianDollar;
+        break;
+        case 7:
+        cout<<"The amount from CAD into PKR is "<< amount * CanadianDollar;
+        SaveCurrency<<"The amount from CAD into PKR is "<< amount * CanadianDollar;
+        break;
+        case 8:
+        cout<<"The amount from SGD into PKR is "<< amount * SingaporeDollar;
+        SaveCurrency<<"The amount from SGD into PKR is "<< amount * SingaporeDollar;
+        break;
+        case 9:
+        cout<<"The amount from JPY into PKR is "<< amount * JapaneseYen;
+        SaveCurrency<<"The amount from JPY into PKR is "<< amount * JapaneseYen;
+        break;
+        
     }
 };
 };
+
+class ToPKR : public display{
+public:
+double usd;
+double dinar;
+double pound;
+double euro;
+double indianrs;
+double AustralianDollar;
+double CanadianDollar;
+double SingaporeDollar;
+double JapaneseYen;
+    ToPKR(double u , double d , double po, double e, double i , double a , double c , double s , double j){
+    usd=u;
+    dinar=d;
+    pound=po;
+    euro=e;
+    indianrs=i;
+    AustralianDollar=a;
+    CanadianDollar=c;
+    SingaporeDollar=s;
+    JapaneseYen=j;
+    cout<<"1. USD into PKR :"<<usd<<endl;
+    cout<<"2. KWD into PKR :"<<d<<endl;
+    cout<<"3. GBP into PKR :"<<po<<endl;
+    cout<<"4. Euro into PKR :"<<e<<endl;
+    cout<<"5. INR into PKR : "<<i<<endl;
+    cout<<"6. AUD into PKR : "<<a<<endl;
+    cout<<"7. CAD into PKR : "<<c<<endl;
+    cout<<"8. SGD into PKR : "<<s<<endl;
+    cout<<"9. JPY into PKR : "<<j<<endl;
+    cout<<"-----------------------------"<<endl;
+    };
+     void displayoption(int option , int amount) override {
+        switch (option){
+        case 1:
+        cout<<"The amount from PKR into USD is "<< amount / usd;
+        SaveCurrency<<"The amount from PKR into USD is "<< amount / usd;
+        break;
+        case 2:
+        cout<<"The amount from PKR into KWD is "<< amount / dinar;
+        SaveCurrency<<"The amount from PKR into KWD is "<< amount / dinar;
+        break;
+        case 3:
+        cout<<"The amount from PKR into GBP is "<< amount / pound;
+        SaveCurrency<<"The amount from PKR into GBP is "<< amount / pound;
+        break;
+        case 4:
+        cout<<"The amount from PKR into Euro is "<< amount / euro;
+        SaveCurrency<<"The amount from PKR into Euro is "<< amount / euro;
+        break;
+        case 5:
+        cout<<"The amount from PKR into IND is "<< amount / indianrs;
+        SaveCurrency<<"The amount from PKR into IND is "<< amount / indianrs;
+        break;
+        case 6:
+        cout<<"The amount from PKR into AUD is "<< amount / AustralianDollar;
+        SaveCurrency<<"The amount from PKR into AUD is "<< amount / AustralianDollar;
+        break;
+        case 7:
+        cout<<"The amount from PKR into CAD is "<< amount / CanadianDollar;
+        SaveCurrency<<"The amount from PKR into CAD is "<< amount / CanadianDollar;
+        break;
+        case 8:
+        cout<<"The amount from PKR into SGD is "<< amount / SingaporeDollar;
+        SaveCurrency<<"The amount from PKR into SGD is "<< amount / SingaporeDollar;
+        break;
+        case 9:
+        cout<<"The amount from PKR into JYP is "<< amount / JapaneseYen;
+        SaveCurrency<<"The amount from PKR into JYP is "<< amount / JapaneseYen;
+        break;
+        
+    };
+};
+};
+
+class MoreCurrency : public display{
+    MoreCurrency();
+    public:
+    double BahrainiDinar;
+    double SouthKorean;
+    MoreCurrency(double bd, double sk){
+        BahrainiDinar=bd;
+        SouthKorean=sk;
+    }
+    void displayoption(int option , int amount) override {
+    switch(option){
+        case 1:
+        cout<<"The amount from BHD into PKR is "<< amount * BahrainiDinar;
+        SaveCurrency<<"The amount from BHD into PKR is "<< amount * BahrainiDinar;
+        break;
+        case 2:
+        cout<<"The amount from KRW into PKR is "<< amount * SouthKorean;
+        SaveCurrency<<"The amount from KRW into PKR is "<< amount * SouthKorean;
+        break;
+
+    }
+    }
+    
+};
+
 int main(){
-   Currency C(277,900,346);
+
+   int option;
+   cout<<"1. PKR into Other Currencies "<<endl;
+   cout<<"2. Other Currencies to PKR "<<endl;
+   cout<<"3. More Currenices "<<endl;
+   cout<<"-----------------------------"<<endl;
+   cin>>option;
+   
+   if(option == 1){
+   Currency C(277,900,346,295,3.3,180,201,204,2);
    int option;
    int amount;
    cout<<"Enter the currency you want to convert in "<<endl;
    cin>>option;
+   cout<<"-----------------------------"<<endl;
    cout<<"Enter the amount in PKR you want to convert "<<endl;
    cin>>amount;
+   cout<<"-----------------------------"<<endl;
+   C.displayoption(option,amount);
+   }
 
+   else if (option == 2){
+   ToPKR P(277,900,346,295,3.3,180,201,204,2);
+   int option;
+   int amount;
+   cout<<"Enter the currency you want to convert in "<<endl;
+   cin>>option;
+   cout<<"-----------------------------"<<endl;
+   cout<<"Enter the amount in PKR you want to convert "<<endl;
+   cin>>amount;
+   cout<<"-----------------------------"<<endl;
+   P.displayoption(option,amount);
+   }
+
+   else if (option == 3){
+   MoreCurrency M(739,4);
+   int option;
+   int amount;
+   cout<<"Enter the currency you want to convert in "<<endl;
+   cin>>option;
+   cout<<"-----------------------------"<<endl;
+   cout<<"Enter the amount in PKR you want to convert "<<endl;
+   cin>>amount;
+   cout<<"-----------------------------"<<endl;
+   M.displayoption(option,amount);
+   }
+
+}
 }
