@@ -7,7 +7,6 @@ class display{
     public:
     virtual void displayoption(int,int)=0;
 };
-
 class Currency : public display{
 public:
 Currency();
@@ -235,5 +234,4 @@ int main(){
    M.displayoption(option,amount);
    }
 
-}
 }
